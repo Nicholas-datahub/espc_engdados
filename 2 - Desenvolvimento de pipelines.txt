@@ -1,0 +1,14 @@
+2) Desenvolvimento de pipelines de ETL de dados com Python, Apache Airflow e Spark
+
+Foi solicitado à equipe de AI+Analytics do Observatório da Indústria/FIEC, um projeto envolvendo os dados do Anuário Estatísticos da ANTAQ (Agência Nacional de Transportes Aquáticos). O projeto consiste em uma análise pela equipe de cientistas de dados, bem como a disponibilização dos dados para o cliente que possui uma equipe de analistas própria que utiliza a ferramenta de BI (business intelligence) da Microsoft.
+Para isto, o nosso cientista de dados tem que entender a forma de apresentação dos dados pela ANTAQ e assim, fazer o ETL dos dados e os disponibilizar no nosso data lake para ser consumido pelo time de cientistas de dados, como também, elaborar uma forma de entregar os dados tratados ao time de analistas do cliente da melhor forma possível.
+
+Painel de BI: https://web3.antaq.gov.br/ea/sense/index.html#pt
+Documentação: https://web3.antaq.gov.br/ea/sense/download.html#pt
+
+RESPOSTAS
+a) A estrutura ideal é Data Lake + SQL Server (relacional).
+O uso do Data Lake permite que sejam armazenados os dados em sua forma bruta, na camada raw. Além disso, conseguimos preservar os dados originais como são extraídos para processamento futuro e alguma auditoria. Para o time de ciência de dados eu opto pelo parquet para salvar os dados tratados após a etapa de ETL, ainda no data lake.
+Já a utilização do SQL Server para dados estruturados é uma opção ideal para o cliente, visto que este é compatível com o Power BI (Microsoft), além de outras plataformas de BI, se necessário. 
+
+b) 
