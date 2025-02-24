@@ -21,9 +21,9 @@ Este projeto implementa um pipeline de **ETL (Extração, Transformação e Carg
    - Armazenamento dos dados no Data Lake (`/data/lake/antaq/`).
 
 ## Pré-requisitos
-- **Python 3.12.6**
+- **Python 3.11**
 - **Docker** (para SQL Server)
-- **Apache Spark**
+- **Apache Spark 3.5.1**
 - **Prefect**
 
 ### Instalação das Dependências
