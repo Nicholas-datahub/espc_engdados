@@ -11,4 +11,28 @@ a) A estrutura ideal é Data Lake + SQL Server (relacional).
 O uso do Data Lake permite que sejam armazenados os dados em sua forma bruta, na camada raw. Além disso, conseguimos preservar os dados originais como são extraídos para processamento futuro e alguma auditoria. Para o time de ciência de dados eu opto pelo parquet para salvar os dados tratados após a etapa de ETL, ainda no data lake.
 Já a utilização do SQL Server para dados estruturados é uma opção ideal para o cliente, visto que este é compatível com o Power BI (Microsoft), além de outras plataformas de BI, se necessário. 
 
-b) 
+b) O script foi escrito em Python 3.11, Spark 3.5.1 e Prefect para orquestração.
+O repositório no GitHub pode ser acesso por: https://github.com/Nicholas-datahub/espc_engdados
+
+c) O Script em SQL está no repositório GitHub, o arquivo é 'consulta_sqlserver_.sql'.
+Para executar no Excel, os economistas devem seguir os passos:
+1. Abra o Excel.
+Vá para uma nova planilha.
+
+2. Acesse a guia Dados:
+Clique em Dados > Obter Dados > De Banco de Dados > Do SQL Server (em versões mais recentes do Excel) ou De Outros Origens > Do SQL Server.
+
+3. Informe os parâmetros de conexão:
+
+No campo Servidor, digite o nome do servidor onde está o seu SQL Server.
+Se necessário, informe também o Nome do Banco de Dados.
+Clique em OK.
+
+4.Utilize a opção de Query Avançada:
+Na janela que abrir (se houver a opção “Consulta Nativa”), expanda as Opções Avançadas e cole a query completa na caixa “Instrução SQL” (SQL Statement). Caso não apareça essa opção, verifique se a versão do Excel permite inserir uma consulta SQL diretamente.
+
+5. Carregue os dados:
+Após confirmar, o Excel executará a query e exibirá os dados na janela do Power Query. Você pode ajustar os dados se necessário e, em seguida, clicar em Carregar para trazer os dados para a planilha.
+
+6. Atualize a consulta conforme necessário:
+Sempre que os dados no SQL Server forem atualizados, você pode clicar em Atualizar Tudo na guia Dados para atualizar os resultados no Excel.

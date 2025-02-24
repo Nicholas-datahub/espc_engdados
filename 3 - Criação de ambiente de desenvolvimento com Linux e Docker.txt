@@ -1,0 +1,10 @@
+3 - Criação de ambiente de desenvolvimento com Linux e Docker
+
+Todo o código no repositório https://github.com/Nicholas-datahub/espc_engdados foi escrito criando task no Prefect.
+Infelizmente, por motivos de recursos de hardware, não foi possível utilizar o Apache Airflow em minha máquina, mas o Prefect tem o mesmo intuito e consegue configurar o fluxo principal.
+
+Utilizei o Prefect para orquestrar o processo ETL da base ANTAQ de maneira modular. Cada etapa do pipeline foi encapsulada em funções Python, que representam tarefas específicas, e decoradas com o decorator @task do Prefect. Isso permitiu que cada função, como a criação do banco de dados, a criação de tabelas, o download dos dados e o processamento com Spark, se tornasse uma task autônoma, com gerenciamento automático de exceções, logs e retries, facilitando o monitoramento e a depuração do fluxo.
+
+Além disso, o uso do decorator @flow possibilitou a criação de um fluxo principal (antaq_etl_pipeline) que orquestra a execução sequencial e condicional dessas tasks. Nesse fluxo, as tasks são chamadas em uma ordem lógica, garantindo que cada etapa só seja iniciada após a conclusão bem-sucedida da etapa anterior. Esse design permite iterar sobre diferentes anos, de forma dinâmica, e integrar de maneira coesa as operações de download, processamento e carregamento dos dados, mantendo o pipeline limpo e de fácil manutenção.
+
+A abordagem com o Prefect trouxe flexibilidade e leveza ao processo ETL, eliminando a necessidade de utilizar ferramentas mais robustas como o Apache Airflow, que demandam maior configuração e recursos de hardware. Dessa forma, o pipeline se beneficia de uma execução mais ágil e de um ambiente de desenvolvimento simplificado, ideal para cenários onde os recursos são limitados. O resultado é um código modular, de fácil escalabilidade e com alta capacidade de reexecução e monitoramento, atendendo aos requisitos do projeto de forma otimizada.
